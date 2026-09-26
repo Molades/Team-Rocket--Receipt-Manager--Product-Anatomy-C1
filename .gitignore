@@ -1,0 +1,21 @@
+# dependencies & build output
+node_modules/
+www/
+android/app/build/
+android/build/
+android/.gradle/
+android/capacitor-cordova-android-plugins/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+*.apk
+*.aab
+*.log
+
+# secrets — never commit
+*.jks
+*.keystore
+android/keystore.properties
+android/local.properties
+src/keys.js
+.env

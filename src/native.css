@@ -1,0 +1,12 @@
+/* ---------- native app layout: the phone frame becomes the whole screen ---------- */
+html.native,html.native body{height:100%;overflow:hidden;background:var(--cream);overscroll-behavior:none;}
+html.native body{-webkit-tap-highlight-color:transparent;}
+html.native .topbar,html.native .sitemap,html.native .protoBar,html.native .notes,html.native .notch{display:none!important;}
+html.native .app{max-width:none;margin:0;padding:0;height:100%;}
+html.native .proto{display:block!important;height:100%;}
+html.native .protoBody{display:block;height:100%;}
+html.native .phoneWrap{height:100%;}
+html.native .phone{width:100%;max-width:none;height:100%;border-radius:0;padding:0;background:var(--cream);box-shadow:none;
+  padding-top:var(--safe-area-inset-top,env(safe-area-inset-top,0px));padding-bottom:var(--safe-area-inset-bottom,env(safe-area-inset-bottom,0px));}
+html.native .screenStack,html.native .backdrop{border-radius:0;}
+html.native .scr-top{padding-top:12px;}

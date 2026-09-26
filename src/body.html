@@ -1,0 +1,99 @@
+<div id="splash"><div class="spLogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><b>Receipt Keeper</b></div>
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">🧾 <b>Receipt Keeper</b><em>working app</em></div>
+    <div class="modeToggle">
+      <button class="modeBtn active" id="modeSitemapBtn">Sitemap</button>
+      <button class="modeBtn" id="modeProtoBtn">Walkthrough</button>
+    </div>
+  </header>
+
+  <section id="sitemapView" class="sitemap">
+    <div class="sitemapIntro">
+      <h1>Capture → Digitize → Store → Browse</h1>
+      <p>Every screen in the brief, grouped into the six branches of the IA. Click any node to open it in the phone, or start from the top and use it like a first-time user would. Everything here works: bills you add are read by Claude and kept in this browser.</p>
+      <button class="primaryBtn" id="startWalk">▶ Start walkthrough from Zero State</button>
+    </div>
+    <div class="branches">
+      <div class="branch">
+        <h2>01 — Vault</h2>
+        <button class="node" data-screen="onboard">Onboarding<span>4 screens, first launch</span></button>
+        <div class="arrow">↓</div>
+        <button class="node" data-screen="zero">Zero state<span>first open, no login wall</span></button>
+        <div class="arrow">↓</div>
+        <button class="node" data-screen="vault">Vault — List<span>home, reverse-chron, ⤓ PDF of filter</span></button>
+        <div class="arrow">⇄ same tab</div>
+        <button class="node" data-screen="vault-calendar">Vault — Calendar<span>chips/dots on dates</span></button>
+      </div>
+      <div class="branch">
+        <h2>02 — Search</h2>
+        <button class="node" data-screen="search">Search<span>fuzzy text + filters</span></button>
+      </div>
+      <div class="branch">
+        <h2>03 — Folders</h2>
+        <button class="node" data-screen="folders">Folders — Grid<span>cover, name, count</span></button>
+        <div class="arrow">↓</div>
+        <button class="node" data-screen="folder-detail">Folder Detail<span>bills inside, Vault row style</span></button>
+      </div>
+      <div class="branch">
+        <h2>04 — Capture<em>modal, from + anywhere</em></h2>
+        <button class="node" data-screen="capture-picker">Add a bill<span>source picker sheet</span></button>
+        <div class="arrow">↓</div>
+        <button class="node" data-screen="capture-camera">Camera scan<span>+ Image / File / Link</span></button>
+        <div class="arrow">↓</div>
+        <button class="node" data-screen="capture-confirm">Confirm &amp; Save<span>scan clean-up, fields, flags</span></button>
+        <div class="arrow">↓ Save in ▾</div>
+        <button class="node" data-screen="capture-saveIn">Folder picker<span>optional, in-flow create</span></button>
+        <div class="arrow">↓</div>
+        <button class="node" data-screen="capture-saved">Saved<span>PDF created, backup nudge</span></button>
+      </div>
+      <div class="branch">
+        <h2>05 — Bill Detail</h2>
+        <button class="node" data-screen="bill-detail">Bill Detail<span>← Vault, Search, Folders, Capture</span></button>
+        <div class="arrow">↓ View PDF</div>
+        <button class="node" data-screen="pdf-view">PDF view<span>details header + enhanced scan</span></button>
+      </div>
+      <div class="branch">
+        <h2>06 — Account<em>top-bar icon, not a tab</em></h2>
+        <button class="node" data-screen="account">Account<span>backup status, permissions</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="protoView" class="proto" hidden>
+    <div class="protoBar">
+      <button id="toSitemap">← Sitemap</button>
+      <div class="crumb">Screen — <strong id="crumbTitle">Vault</strong></div>
+      <button id="backBtn">↶ Back</button>
+    </div>
+    <div class="protoBody">
+      <div class="phoneWrap">
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screenStack" id="screenStack">
+            <div class="screen active" id="view"></div>
+            <nav class="tabbar" id="tabbar" aria-label="Main"><div class="rail">
+              <button data-act="tab" data-a="vault" data-tab="vault"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5l8-6.5 8 6.5"/><path d="M6 9v10.5h12V9"/><path d="M10 19.5v-5h4v5"/></svg><span>Vault</span></button>
+              <span class="fabGap" aria-hidden="true"></span>
+              <button data-act="tab" data-a="folders" data-tab="folders"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 015.5 5H9l2 2.2h7.5A2.5 2.5 0 0121 9.7v7.8a2.5 2.5 0 01-2.5 2.5h-13A2.5 2.5 0 013 17.5z"/></svg><span>Folders</span></button>
+            </div></nav>
+            <button class="fab show" id="fab" data-act="fab" aria-label="Add a bill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+            <div id="overlay"></div>
+            <div class="toast" id="toast" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <h3>Spec note</h3>
+        <p id="noteText">—</p>
+        <div class="howto" id="howTo"></div>
+      </aside>
+    </div>
+  </section>
+
+</div>
+<input type="file" id="inCam" accept="image/*" capture="environment" hidden>
+<input type="file" id="inImg" accept="image/*" multiple hidden>
+<input type="file" id="inFile" accept="image/*,application/pdf,.pdf" multiple hidden>
+<input type="file" id="inBackup" accept="application/json,.json" hidden>

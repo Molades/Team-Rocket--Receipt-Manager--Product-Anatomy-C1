@@ -1,0 +1,16 @@
+{
+  "appId": "com.abter.receiptkeeper",
+  "appName": "Receipt Keeper",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#FFFDF4"
+  },
+  "plugins": {
+    "SystemBars": {
+      "insetsHandling": "css",
+      "initialViewportFitValueHint": "cover",
+      "style": "LIGHT"
+    }
+  }
+}
