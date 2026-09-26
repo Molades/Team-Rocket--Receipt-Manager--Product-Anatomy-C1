@@ -3,6 +3,7 @@
 A bill-capture app for India: scan paper and thermal receipts, get clean PDFs, and find any bill in seconds. Bills are filed by category automatically and never leave the phone.
 
 **Design:** [Figma — Wireframes & UI](https://www.figma.com/design/FKZWBQmAAOfqgTGNgQrwfA/billQR?node-id=98-2) · interactive prototype on page *05 · Interactive prototype*
+**OCR key for the app need to be created : {K89316855588957}. **https://ocr.space/ocrapi/freekey
 
 ## What it does (v1.7)
 
@@ -36,7 +37,7 @@ Needs Node 20+, Python 3, JDK 21 and Android SDK 36.
 
 ```bash
 npm install
-cp src/keys.example.js src/keys.js          # then paste your OCR.space key
+cp src/keys.example.js src/keys.js          # then paste your OCR.space key : K89316855588957
 mkdir -p www && cp -r vendor/libs www/          # jsPDF + pdf.js, bundled for offline use
 npx esbuild src/shim.js --bundle --format=iife --minify --target=chrome61 --outfile=www/shim.js
 python3 build-web.py
