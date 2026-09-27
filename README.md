@@ -2,10 +2,10 @@
 
 A bill-capture app for India: scan paper and thermal receipts, get clean PDFs, and find any bill in seconds. Bills are filed by category automatically and never leave the phone.
 
-**Design:** [Figma — Wireframes & UI](https://www.figma.com/design/FKZWBQmAAOfqgTGNgQrwfA/billQR?node-id=98-2) · interactive prototype on page *05 · Interactive prototype*
+**Design:** [Figma — Wireframes & UI](https://www.figma.com/design/FKZWBQmAAOfqgTGNgQrwfA/billQR?node-id=98-2) ·
 **OCR key for the app need to be created : {K89316855588957}. **https://ocr.space/ocrapi/freekey
 
-## What it does (v1.7)
+## What it does (v1.7) also on the
 
 | Area | Features |
 |---|---|
@@ -46,6 +46,35 @@ cd android && ./gradlew assembleRelease
 ```
 
 Release signing reads `android/keystore.properties` (not in the repo). Ask the project owner for the keystore — every update must be signed with the same key or phones will refuse to install it over the old version.
+
+## Team Testing
+
+### Option 1 — Download the latest APK
+
+The latest signed test APK is available in GitHub Releases.
+
+[Download the latest Receipt Keeper APK]: (https://github.com/Molades/Team-Rocket--Receipt-Manager--Product-Anatomy-C1/releases/latest](https://github.com/Molades/Team-Rocket--Receipt-Manager--Product-Anatomy-C1/releases/latest)
+
+Install the APK on an Android phone and use it for bootcamp testing.
+
+### Option 2 — Clone and test the code
+
+Team members can clone the repository, make changes, and build a **debug APK** to test their work.
+
+```bash
+git clone https://github.com/Molades/Team-Rocket--Receipt-Manager--Product-Anatomy-C1.git
+cd Team-Rocket--Receipt-Manager--Product-Anatomy-C1
+
+npm install
+
+mkdir -p www
+cp -r vendor/libs www/
+npx esbuild src/shim.js --bundle --format=iife --minify --target=chrome61 --outfile=www/shim.js
+python3 build-web.py
+npx cap sync android
+
+cd android
+./gradlew assembleDebug
 
 ## Team
 
